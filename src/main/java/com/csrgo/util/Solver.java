@@ -1,3 +1,4 @@
+// All rights reserved to CSRGO DSA
 package com.csrgo.util;
 
 @FunctionalInterface

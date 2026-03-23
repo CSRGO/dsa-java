@@ -1,3 +1,4 @@
+// All rights reserved to CSRGO DSA
 package com.csrgo.util;
 
 import java.util.*;
@@ -90,6 +91,15 @@ public class TestRunner<I, O> {
         System.out.println("Failed      : " + failed);
         System.out.println("Result      : " + (failed == 0 ? "✅ ACCEPTED" : "❌ FAILED"));
         System.out.println("=================================");
+
+        if (failed == 0 && passed > 0) {
+            System.out.println();
+            System.out.println("🎉 CONGRATULATIONS! You have successfully completed this problem.");
+            System.out.println("If you find value in CSRGO DSA, please consider volunteering to support us.");
+            System.out.println("Your contribution helps maintain the platform and fund continuous improvements!");
+            System.out.println("👉 https://dsa.csrgo.com/support/");
+            System.out.println();
+        }
     }
 
     // ---------- INPUT FORMAT ----------
