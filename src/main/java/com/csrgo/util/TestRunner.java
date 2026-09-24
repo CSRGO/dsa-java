@@ -60,8 +60,8 @@ public class TestRunner<I, O> {
         System.out.println(
                 "[TEST " + testNo + "] " + name + " ✅ PASS\n" +
                         "Input     : " + format(input) + "\n" +
-                        "Expected  : " + expected + "\n" +
-                        "Output    : " + result + "\n" +
+                        "Expected  : " + formatValue(expected) + "\n" +
+                        "Output    : " + formatValue(result) + "\n" +
                         "Time      : " + time + " ms\n"
         );
     }
@@ -70,8 +70,8 @@ public class TestRunner<I, O> {
         System.out.println(
                 "[TEST " + testNo + "] " + name + " ❌ FAIL\n" +
                         "Input     : " + format(input) + "\n" +
-                        "Expected  : " + expected + "\n" +
-                        "Output    : " + result + "\n" +
+                        "Expected  : " + formatValue(expected) + "\n" +
+                        "Output    : " + formatValue(result) + "\n" +
                         "Time      : " + time + " ms\n"
         );
     }
@@ -121,5 +121,19 @@ public class TestRunner<I, O> {
         }
 
         return String.valueOf(input);
+    }
+
+    private String formatValue(Object val) {
+        if (val == null) return "null";
+        String s = format(val);
+        if (s.contains("\n")) {
+            if (!s.startsWith("\n")) {
+                s = "\n" + s;
+            }
+            if (s.endsWith("\n")) {
+                s = s.substring(0, s.length() - 1);
+            }
+        }
+        return s;
     }
 }
