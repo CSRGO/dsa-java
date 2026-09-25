@@ -27,7 +27,7 @@ public class TestRunner<I, O> {
                 long end = System.nanoTime();
                 long timeMs = (end - start) / 1_000_000;
 
-                if (Objects.equals(result, test.expected)) {
+                if (Objects.deepEquals(result, test.expected)) {
                     passed++;
                     printPass(test.name, test.input, test.expected, result, timeMs);
                 } else {
