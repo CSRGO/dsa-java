@@ -44,6 +44,8 @@ public class LinearizeTreeDebug {
             return new int[0];
         }
 
+        final Node finalRoot = root;
+
         class Linearizer {
             Node linearize(Node node) {
                 if (node.children.size() == 0) {
@@ -56,7 +58,7 @@ public class LinearizeTreeDebug {
                     Node last = node.children.remove(0);
                     Node secondLast = node.children.get(node.children.size() - 1);
                     Node secondLastTail = linearize(secondLast);
-                    root.children.add(last);
+                    finalRoot.children.add(last);
                 }
 
                 return lastTail;
