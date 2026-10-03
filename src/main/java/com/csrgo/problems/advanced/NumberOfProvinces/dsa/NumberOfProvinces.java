@@ -6,28 +6,9 @@ import java.util.*;
 // Problem Link: https://dsa.csrgo.com/problems/number-of-provinces/
 public class NumberOfProvinces {
 
-    private static void dfs(int curr, int[][] isConnected, boolean[] visited, int n) {
-        visited[curr] = true;
-        for (int j = 0; j < n; j++) {
-            if (isConnected[curr][j] == 1 && !visited[j]) {
-                dfs(j, isConnected, visited, n);
-            }
-        }
-    }
-
     public static int solve(int[][] isConnected) {
-        int n = isConnected.length;
-        boolean[] visited = new boolean[n];
-        int count = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                count++;
-                dfs(i, isConnected, visited, n);
-            }
-        }
-
-        return count;
+        // TODO: write your logic here
+        return 0;
     }
 
     // run this method for custom input to test

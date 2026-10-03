@@ -7,12 +7,7 @@ import java.util.*;
 public class NumberOfProvincesDebug {
 
     private static void dfs(int curr, int[][] isConnected, boolean[] visited, int n) {
-        // Bug 1: forgetting to mark current node as visited causes endless cycles if self-loop checked
-        // visited[curr] = true;
-
-        // Bug 2: only looking forward (j = curr + 1), failing to traverse backward reachable edges
         for (int j = curr + 1; j < n; j++) {
-            // Bug 3: condition checks == 0 instead of == 1
             if (isConnected[curr][j] == 0 && !visited[j]) {
                 visited[j] = true;
                 dfs(j, isConnected, visited, n);

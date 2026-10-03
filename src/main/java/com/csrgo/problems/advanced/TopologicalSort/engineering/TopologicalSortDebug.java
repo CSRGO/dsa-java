@@ -18,7 +18,6 @@ public class TopologicalSortDebug {
             int u = edge[0];
             int v = edge[1];
             graph.get(u).add(v);
-            // Bug 1: incrementing u's degree instead of v's in-degree
             inDegree[u]++;
         }
 
@@ -30,7 +29,6 @@ public class TopologicalSortDebug {
         }
 
         int[] result = new int[vtces];
-        // Bug 2: starting index at 1 causing off-by-one and index out of bounds
         int idx = 1;
 
         while (!pq.isEmpty()) {
@@ -41,7 +39,6 @@ public class TopologicalSortDebug {
 
             for (int neighbor : graph.get(curr)) {
                 inDegree[neighbor]--;
-                // Bug 3: condition checks <= 1 instead of == 0 before adding to queue
                 if (inDegree[neighbor] <= 1) {
                     pq.add(neighbor);
                 }

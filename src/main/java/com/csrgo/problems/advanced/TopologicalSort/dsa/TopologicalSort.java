@@ -7,42 +7,8 @@ import java.util.*;
 public class TopologicalSort {
 
     public static int[] solve(int vtces, int[][] edges) {
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < vtces; i++) {
-            graph.add(new ArrayList<>());
-        }
-
-        int[] inDegree = new int[vtces];
-        for (int[] edge : edges) {
-            int u = edge[0];
-            int v = edge[1];
-            graph.get(u).add(v);
-            inDegree[v]++;
-        }
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-        for (int i = 0; i < vtces; i++) {
-            if (inDegree[i] == 0) {
-                pq.add(i);
-            }
-        }
-
-        int[] result = new int[vtces];
-        int idx = 0;
-
-        while (!pq.isEmpty()) {
-            int curr = pq.poll();
-            result[idx++] = curr;
-
-            for (int neighbor : graph.get(curr)) {
-                inDegree[neighbor]--;
-                if (inDegree[neighbor] == 0) {
-                    pq.add(neighbor);
-                }
-            }
-        }
-
-        return result;
+        // TODO: write your logic here
+        return new int[0];
     }
 
     // run this method for custom input to test
